@@ -14,8 +14,12 @@
     tools:context="com.yoyiyi.bookreadercopy.MainActivity"
     tools:showIn="@layout/app_bar_main">
 
-    <TextView
-        android:layout_width="wrap_content"
+
+   <!-- <include layout="@layout/custom_progress"/>-->
+
+    <Button
+        android:id="@+id/button"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Hello World!"/>
+        android:text="点击"/>
 </RelativeLayout>

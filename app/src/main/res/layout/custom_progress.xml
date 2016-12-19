@@ -4,11 +4,12 @@
        android:layout_width="wrap_content"
        android:layout_height="wrap_content">
 
-    <com.yoyiyi.zzq.bookreader.widget.ProgressWheel
+    <com.yoyiyi.bookreadercopy.widget.ProgressWheel
+        android:id="@+id/common_progress"
         android:layout_width="80dp"
         android:layout_height="80dp"
         android:layout_centerInParent="true"
-        app:matProg_barColor="@color/colorAccent"
+        app:matProg_barColor="@color/colorPrimary"
         app:matProg_fillRadius="false"
         app:matProg_linearProgress="true"
         app:matProg_progressIndeterminate="true"/>

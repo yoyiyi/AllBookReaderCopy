@@ -3,8 +3,8 @@
                        ::
                       :;J7, :,                        ::;7:
                       ,ivYi, ,                       ;LLLFS:
-                      :iv7Yi                       :7ri;j5PL
-                     ,:ivYLvr                    ,ivrrirrY2X,
+                      :iv7Yi        狗头保佑         :7ri;j5PL
+                     ,:ivYLvr       永无BUG       ,ivrrirrY2X,
                      :;r@Wwz.7r:                :ivu@kexianli.
                     :iL7::,:::iiirii:ii;::::,,irvF7rvvLujL7ur
                    ri::,:,::i:iiiiiii:i:irrv177JX7rYXqZEkvv17
@@ -65,12 +65,17 @@ public class BookApplication extends Application {
     @Override
     public void onCreate() {
         super.onCreate();
-        AppUtils.init(this);
         mContext = this;
+        //App帮助类
+        AppUtils.init(this);
         initComponent();
+        //Log
         initLog();
+        //Stetho调试类
         initStetho();
+        //sp
         initPrefs();
+        //CrashHandler
         initCrashHandler();
 
     }
@@ -121,6 +126,7 @@ public class BookApplication extends Application {
                         .enableDumpapp(Stetho.defaultDumperPluginsProvider(this))
                         .enableWebKitInspector(Stetho.defaultInspectorModulesProvider(this))
                         .build());
+        //Stetho.initializeWithDefaults(this);
     }
 
     /**

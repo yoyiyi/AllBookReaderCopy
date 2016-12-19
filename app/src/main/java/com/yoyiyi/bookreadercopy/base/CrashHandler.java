@@ -62,7 +62,11 @@ public class CrashHandler implements UncaughtExceptionHandler {
      */
     public static CrashHandler getInstance() {
         if (INSTANCE == null)
-            INSTANCE = new CrashHandler();
+            synchronized (CrashHandler.class) {
+                if (INSTANCE == null) {
+                    INSTANCE = new CrashHandler();
+                }
+            }
         return INSTANCE;
     }
 
@@ -88,15 +92,12 @@ public class CrashHandler implements UncaughtExceptionHandler {
             //如果用户没有处理则让系统默认的异常处理器来处理
             mDefaultHandler.uncaughtException(thread, ex);
         } else {
-          //  DownloadBookService.cancel(); // 取消任务
+            //  DownloadBookService.cancel(); // 取消任务
             LogUtils.i("取消下载任务");
-            new Thread(new Runnable() {
-                @Override
-                public void run() {
-                    Looper.prepare();
-                    ToastUtils.showLongToast("哎呀，程序发生异常啦...");
-                    Looper.loop();
-                }
+            new Thread(() -> {
+                Looper.prepare();
+                ToastUtils.showLongToast("哎呀，程序发生异常啦...");
+                Looper.loop();
             }).start();
 
             try {
@@ -165,7 +166,7 @@ public class CrashHandler implements UncaughtExceptionHandler {
     private String saveCrashInfo2File(Throwable ex) {
 
         StringBuffer sb = new StringBuffer();
-        sb.append("---------------------sta--------------------------");
+        sb.append("---------------------start--------------------------");
         for (Map.Entry<String, String> entry : infos.entrySet()) {
             String key = entry.getKey();
             String value = entry.getValue();
@@ -190,7 +191,7 @@ public class CrashHandler implements UncaughtExceptionHandler {
         File file = new File(FileUtils.createRootPath(mContext) + "/log/" + fileName);
         FileUtils.createFile(file);
         FileUtils.writeFile(file.getAbsolutePath(), sb.toString());
-        // uploadCrashMessage(sb.toString());
+        //uploadCrashMessage(sb.toString());
         return null;
     }
 }
