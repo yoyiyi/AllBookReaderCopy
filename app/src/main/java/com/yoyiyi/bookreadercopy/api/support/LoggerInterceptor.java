@@ -12,10 +12,11 @@ import okhttp3.Response;
 import okhttp3.ResponseBody;
 
 /**
+ * Logger拦截器
  * Created by zzq on 2016/12/5.
  */
 
-public class LoggerInterceptor implements Interceptor {
+public final  class LoggerInterceptor implements Interceptor {
     @Override
     public Response intercept(Chain chain) throws IOException {
         Request request = chain.request();

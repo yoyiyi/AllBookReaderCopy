@@ -4,15 +4,13 @@ package com.yoyiyi.bookreadercopy.base;
  * Created by zzq on 2016/12/5.
  */
 
-public class BaseContract
-{
+public interface BaseContract {
     /**
      * BasePresenter
      *
      * @param <T>
      */
-    interface BasePresenter<T>
-    {
+    interface BasePresenter<T> {
         /**
          * 绑定
          *
@@ -29,8 +27,7 @@ public class BaseContract
     /**
      * BaseView
      */
-    interface BaseView
-    {
+    interface BaseView {
 
         /**
          * 错误

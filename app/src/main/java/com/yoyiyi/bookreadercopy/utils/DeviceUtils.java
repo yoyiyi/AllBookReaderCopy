@@ -1,4 +1,3 @@
-
 package com.yoyiyi.bookreadercopy.utils;
 
 import android.annotation.TargetApi;
