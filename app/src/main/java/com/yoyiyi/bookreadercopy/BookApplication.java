@@ -10,14 +10,12 @@ import com.yoyiyi.bookreadercopy.utils.AppUtils;
  * Created by zzq on 2016/12/5.
  */
 
-public class BookApplication extends Application
-{
+public class BookApplication extends Application {
     //private AppComponent mAppComponent;
     private static BookApplication mContext;
 
     @Override
-    public void onCreate()
-    {
+    public void onCreate() {
         super.onCreate();
         AppUtils.init(this);
         mContext = this;
@@ -28,8 +26,7 @@ public class BookApplication extends Application
     /**
      * @return BookApplication
      */
-    public static BookApplication getInstance()
-    {
+    public static BookApplication getInstance() {
         return mContext;
     }
 
@@ -37,8 +34,7 @@ public class BookApplication extends Application
      * 初始化Component
      * ApiModule和AppModule
      */
-    private void initComponent()
-    {
+    private void initComponent() {
        /* mAppComponent = DaggerAppComponent.builder()
                 .apiModule(new ApiModule())
                 .appModule(new AppModule(this))

@@ -23,24 +23,21 @@ import android.support.v4.content.ContextCompat;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.yoyiyi.zzq.bookreader.R;
+import com.yoyiyi.bookreadercopy.R;
 
 
 /**
+ * 状态栏工具类
  * Created by zzq on 2016/12/5.
  */
-public class StatusBarCompat
-{
+public class StatusBarCompat {
     private static final int INVALID_VAL = -1;
 
     @TargetApi(Build.VERSION_CODES.LOLLIPOP)//21
-    public static View compat(Activity activity, int statusColor)
-    {
+    public static View compat(Activity activity, int statusColor) {
         int color = ContextCompat.getColor(activity, R.color.colorPrimaryDark);
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP)
-        {
-            if (statusColor != INVALID_VAL)
-            {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+            if (statusColor != INVALID_VAL) {
                 color = statusColor;
             }
             activity.getWindow().setStatusBarColor(color);
@@ -48,16 +45,13 @@ public class StatusBarCompat
         }
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT
-                && Build.VERSION.SDK_INT < Build.VERSION_CODES.LOLLIPOP)
-        {
+                && Build.VERSION.SDK_INT < Build.VERSION_CODES.LOLLIPOP) {
             ViewGroup contentView = (ViewGroup) activity.findViewById(android.R.id.content);
-            if (statusColor != INVALID_VAL)
-            {
+            if (statusColor != INVALID_VAL) {
                 color = statusColor;
             }
             View statusBarView = contentView.getChildAt(0);
-            if (statusBarView != null && statusBarView.getMeasuredHeight() == getStatusBarHeight(activity))
-            {
+            if (statusBarView != null && statusBarView.getMeasuredHeight() == getStatusBarHeight(activity)) {
                 statusBarView.setBackgroundColor(color);
                 return statusBarView;
             }
@@ -72,18 +66,15 @@ public class StatusBarCompat
 
     }
 
-    public static void compat(Activity activity)
-    {
+    public static void compat(Activity activity) {
         compat(activity, INVALID_VAL);
     }
 
 
-    public static int getStatusBarHeight(Context context)
-    {
+    public static int getStatusBarHeight(Context context) {
         int result = 0;
         int resourceId = context.getResources().getIdentifier("status_bar_height", "dimen", "android");
-        if (resourceId > 0)
-        {
+        if (resourceId > 0) {
             result = context.getResources().getDimensionPixelSize(resourceId);
         }
         return result;

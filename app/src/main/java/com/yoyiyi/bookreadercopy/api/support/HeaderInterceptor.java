@@ -15,8 +15,9 @@
  */
 package com.yoyiyi.bookreadercopy.api.support;
 
-import com.yoyiyi.zzq.bookreader.utils.AppUtils;
-import com.yoyiyi.zzq.bookreader.utils.DeviceUtils;
+
+import com.yoyiyi.bookreadercopy.utils.AppUtils;
+import com.yoyiyi.bookreadercopy.utils.DeviceUtils;
 
 import java.io.IOException;
 

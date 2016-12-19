@@ -15,10 +15,10 @@ import android.util.DisplayMetrics;
 import com.orhanobut.logger.Logger;
 
 /**
+ * 设备工具类
  * Created by zzq on 2016/12/5.
  */
-public class DeviceUtils
-{
+public class DeviceUtils {
 
     private static final String TAG = DeviceUtils.class.getSimpleName();
     //中国移动
@@ -33,8 +33,7 @@ public class DeviceUtils
     /**
      * 获取设备的系统版本号
      */
-    public static int getDeviceSDK()
-    {
+    public static int getDeviceSDK() {
         return Build.VERSION.SDK_INT;
 
     }
@@ -42,8 +41,7 @@ public class DeviceUtils
     /**
      * 获取设备的型号
      */
-    public static String getDeviceName()
-    {
+    public static String getDeviceName() {
         return Build.MODEL;
     }
 
@@ -53,8 +51,7 @@ public class DeviceUtils
      * @param context
      * @return
      */
-    public static String getIMSI(Context context)
-    {
+    public static String getIMSI(Context context) {
         TelephonyManager telephonyManager = (TelephonyManager) context.getSystemService(Context.TELEPHONY_SERVICE);
         return telephonyManager.getSubscriberId();
     }
@@ -65,8 +62,7 @@ public class DeviceUtils
      * @param context
      * @return
      */
-    public static String getIMEI(Context context)
-    {
+    public static String getIMEI(Context context) {
         TelephonyManager telephonyManager = (TelephonyManager) context.getSystemService(Context.TELEPHONY_SERVICE);
         return telephonyManager.getDeviceId();
     }
@@ -77,26 +73,20 @@ public class DeviceUtils
      * @param context
      * @return
      */
-    public static String getPhoneISP(Context context)
-    {
-        if (context == null)
-        {
+    public static String getPhoneISP(Context context) {
+        if (context == null) {
             return "";
         }
         TelephonyManager manager = (TelephonyManager) context.getSystemService(Context.TELEPHONY_SERVICE);
         String teleCompany = "";
         String np = manager.getNetworkOperator();
 
-        if (np != null)
-        {
-            if (np.equals(CMCC_ISP) || np.equals(CMCC2_ISP))
-            {
+        if (np != null) {
+            if (np.equals(CMCC_ISP) || np.equals(CMCC2_ISP)) {
                 teleCompany = "中国移动";
-            } else if (np.startsWith(CU_ISP))
-            {
+            } else if (np.startsWith(CU_ISP)) {
                 teleCompany = "中国联通";
-            } else if (np.startsWith(CT_ISP))
-            {
+            } else if (np.startsWith(CT_ISP)) {
                 teleCompany = "中国电信";
             }
         }
@@ -109,8 +99,7 @@ public class DeviceUtils
      * @param context
      * @return
      */
-    public static DisplayMetrics getDisplayMetrics(Context context)
-    {
+    public static DisplayMetrics getDisplayMetrics(Context context) {
         DisplayMetrics dm = context.getResources().getDisplayMetrics();
         return dm;
     }
@@ -121,8 +110,7 @@ public class DeviceUtils
      * @param context
      * @return
      */
-    public static DisplayMetrics printDisplayInfo(Context context)
-    {
+    public static DisplayMetrics printDisplayInfo(Context context) {
         DisplayMetrics dm = getDisplayMetrics(context);
         StringBuilder sb = new StringBuilder();
         sb.append("\ndensity         :").append(dm.density);
@@ -143,8 +131,7 @@ public class DeviceUtils
      * @return
      */
     @TargetApi(Build.VERSION_CODES.CUPCAKE)
-    public static String getAvailMemory(Context context)
-    {
+    public static String getAvailMemory(Context context) {
         ActivityManager am = (ActivityManager) context.getSystemService(Context.ACTIVITY_SERVICE);
         ActivityManager.MemoryInfo mi = new ActivityManager.MemoryInfo();
         am.getMemoryInfo(mi);
@@ -157,8 +144,7 @@ public class DeviceUtils
      * 获取 MAC 地址
      * 须配置android.permission.ACCESS_WIFI_STATE权限
      */
-    public static String getMacAddress(Context context)
-    {
+    public static String getMacAddress(Context context) {
         //wifi mac地址
         WifiManager wifi = (WifiManager) context.getSystemService(Context.WIFI_SERVICE);
         WifiInfo info = wifi.getConnectionInfo();
@@ -170,8 +156,7 @@ public class DeviceUtils
     /**
      * 获取 开机时间
      */
-    public static String getBootTimeString()
-    {
+    public static String getBootTimeString() {
         long time = SystemClock.elapsedRealtime() / 1000;
         int h = (int) ((time / 3600));
         int m = (int) ((time / 60) % 60);

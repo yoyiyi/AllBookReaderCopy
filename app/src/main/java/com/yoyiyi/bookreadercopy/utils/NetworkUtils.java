@@ -5,11 +5,11 @@ import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 
 /**
+ * 网络工具类
  * Created by zzq on 2016/12/5.
  */
 
-public class NetworkUtils
-{
+public class NetworkUtils {
     private static final String TAG = NetworkUtils.class.getSimpleName();
     public static final int NETWORK_WIFI = 1;    // wifi network
     public static final int NETWORK_4G = 4;    // "4G" networks
@@ -21,13 +21,13 @@ public class NetworkUtils
     private static final int NETWORK_TYPE_GSM = 16;
     private static final int NETWORK_TYPE_TD_SCDMA = 17;
     private static final int NETWORK_TYPE_IWLAN = 18;
+
     /**
      * 获取网络环境
      *
      * @return
      */
-    private static NetworkInfo getActiveNetworkInfo()
-    {
+    private static NetworkInfo getActiveNetworkInfo() {
         ConnectivityManager cm = (ConnectivityManager) AppUtils.getContext()
                 .getSystemService(Context.CONNECTIVITY_SERVICE);
         return cm.getActiveNetworkInfo();
@@ -39,8 +39,7 @@ public class NetworkUtils
      *
      * @return
      */
-    public static boolean isAvailable()
-    {
+    public static boolean isAvailable() {
         NetworkInfo info = getActiveNetworkInfo();
         return info != null && info.isAvailable();
     }
@@ -51,8 +50,7 @@ public class NetworkUtils
      *
      * @return
      */
-    public static boolean isConnected()
-    {
+    public static boolean isConnected() {
         NetworkInfo info = getActiveNetworkInfo();
         return info != null && info.isConnected();
     }
