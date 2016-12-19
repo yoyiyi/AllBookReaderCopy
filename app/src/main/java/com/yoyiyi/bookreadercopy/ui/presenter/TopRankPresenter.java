@@ -30,7 +30,8 @@ public class TopRankPresenter extends RxPresenter<TopRankContract.View> implemen
     @Override
     public void getRankList() {
         String key = StringUtils.creatAcacheKey("book-ranking-list");
-        Observable<RankingList> observable = mApiManager.getRanking()
+        Observable<RankingList> observable = mApiManager
+                .getRanking()
                 .compose(RxUtil.<RankingList>rxCacheBeanHelper(key));
         Subscription subscription = Observable
                 .concat(RxUtil.rxCreateDiskObservable(key, RankingList.class), observable)

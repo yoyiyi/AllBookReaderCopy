@@ -1,6 +1,7 @@
 package com.yoyiyi.bookreadercopy.module;
 
 import com.yoyiyi.bookreadercopy.api.ApiManager;
+import com.yoyiyi.bookreadercopy.api.support.CacheInterceptor;
 import com.yoyiyi.bookreadercopy.api.support.HeaderInterceptor;
 import com.yoyiyi.bookreadercopy.api.support.LoggerInterceptor;
 
@@ -24,8 +25,8 @@ public class ApiModule {
                 .readTimeout(20 * 1000, TimeUnit.MILLISECONDS)
                 .retryOnConnectionFailure(true) // 失败重发
                 .addInterceptor(new HeaderInterceptor())
-                // .addNetworkInterceptor(new CacheInterceptor())
-                // .addInterceptor(new CacheInterceptor())
+                .addNetworkInterceptor(new CacheInterceptor())
+                .addInterceptor(new CacheInterceptor())
                 .addInterceptor(new LoggerInterceptor());
         return builder.build();
     }

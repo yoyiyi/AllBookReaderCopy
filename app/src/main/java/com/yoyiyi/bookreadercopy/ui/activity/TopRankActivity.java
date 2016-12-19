@@ -1,8 +1,5 @@
 package com.yoyiyi.bookreadercopy.ui.activity;
 
-import android.widget.TextView;
-
-import com.orhanobut.logger.Logger;
 import com.yoyiyi.bookreadercopy.R;
 import com.yoyiyi.bookreadercopy.base.BaseActivity;
 import com.yoyiyi.bookreadercopy.component.AppComponent;
@@ -11,9 +8,10 @@ import com.yoyiyi.bookreadercopy.entities.RankingList;
 import com.yoyiyi.bookreadercopy.ui.contract.TopRankContract;
 import com.yoyiyi.bookreadercopy.ui.presenter.TopRankPresenter;
 
-import javax.inject.Inject;
+import java.util.ArrayList;
+import java.util.List;
 
-import butterknife.BindView;
+import javax.inject.Inject;
 
 
 /**
@@ -25,9 +23,8 @@ public class TopRankActivity extends BaseActivity implements TopRankContract.Vie
     @Inject
     TopRankPresenter mPresenter;
 
-    @BindView(R.id.ceshi)
-    TextView mCeshi;
-
+    List<RankingList.MaleBean> mMaleBeanList = new ArrayList<>();
+    private StringBuffer mBuffer;
 
     @Override
     public int getLayoutId() {
@@ -36,11 +33,8 @@ public class TopRankActivity extends BaseActivity implements TopRankContract.Vie
 
     @Override
     public void initWidget() {
-        //showProgress();
-
         mPresenter.attachView(this);
         mPresenter.getRankList();
-
     }
 
     @Override
@@ -63,19 +57,26 @@ public class TopRankActivity extends BaseActivity implements TopRankContract.Vie
                 .inject(this);
     }
 
+
     @Override
     public void showRankList(RankingList rankingList) {
-        Logger.d(rankingList);
+        mMaleBeanList.addAll(rankingList.male);
+       /* mBuffer = new StringBuffer();
+        for (RankingList.MaleBean male : mMaleBeanList) {
+            mBuffer.append(male.title + "\n");
+            Logger.d(male.title);
+        }*/
     }
 
     @Override
     public void showError() {
-        //   hideProgress();
+        hideProgress();
     }
 
     @Override
     public void complete() {
-        //  hideProgress();
+        hideProgress();
+
     }
 
 }

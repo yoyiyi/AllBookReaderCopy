@@ -11,12 +11,19 @@ public class RxPresenter<T extends BaseContract.BaseView> implements BaseContrac
     protected T mView;
     protected CompositeSubscription mCompositeSubscription;
 
+    /**
+     * 解绑
+     */
     protected void unSubscribe() {
         if (mCompositeSubscription != null) {
             mCompositeSubscription.unsubscribe();
         }
     }
 
+    /**
+     * 绑定
+     * @param subscription
+     */
     protected void addSubscribe(Subscription subscription) {
         if (mCompositeSubscription == null) {
             mCompositeSubscription = new CompositeSubscription();

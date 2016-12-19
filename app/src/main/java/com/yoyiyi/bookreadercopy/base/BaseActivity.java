@@ -11,6 +11,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.view.WindowManager;
 
+import com.yoyiyi.bookreadercopy.BookApplication;
 import com.yoyiyi.bookreadercopy.R;
 import com.yoyiyi.bookreadercopy.component.AppComponent;
 import com.yoyiyi.bookreadercopy.utils.StatusBarCompat;
@@ -46,8 +47,8 @@ public abstract class BaseActivity extends AppCompatActivity {
         ButterKnife.bind(this);
 
         mToolbar = ButterKnife.findById(this, R.id.common_toolbar);
-       // mProgressWheel = ButterKnife.findById(this, R.id.common_progress);
-
+        mProgress = ButterKnife.findById(this, R.id.common_progress);
+        setupActivityComponent(BookApplication.getInstance().getAppComponent());
         if (mToolbar != null) {
             //初始化Toolbar
             initToolbar();
