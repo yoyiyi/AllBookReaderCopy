@@ -44,7 +44,7 @@ public class TopRankActivity extends BaseActivity implements TopRankContract.Vie
     @Override
     public void initToolbar() {
         mToolbar.setTitle("排行榜");
-        mToolbar.setNavigationIcon(R.drawable.ab_back);
+        mToolbar.setNavigationIcon(R.mipmap.ab_back);
     }
 
     @Override
