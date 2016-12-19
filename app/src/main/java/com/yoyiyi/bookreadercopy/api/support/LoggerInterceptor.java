@@ -15,11 +15,9 @@ import okhttp3.ResponseBody;
  * Created by zzq on 2016/12/5.
  */
 
-public class LoggerInterceptor implements Interceptor
-{
+public class LoggerInterceptor implements Interceptor {
     @Override
-    public Response intercept(Chain chain) throws IOException
-    {
+    public Response intercept(Chain chain) throws IOException {
         Request request = chain.request();
         Logger.d(String.format("Sending request %s on %s%n%s",
                 request.url(), chain.connection(), request.headers()));

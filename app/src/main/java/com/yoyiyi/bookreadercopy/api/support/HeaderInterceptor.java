@@ -31,19 +31,16 @@ import okhttp3.Response;
  * @author yuyh.
  * @date 16/8/6.
  */
-public final class HeaderInterceptor implements Interceptor
-{
+public final class HeaderInterceptor implements Interceptor {
 
     @Override
-    public Response intercept(Chain chain) throws IOException
-    {
+    public Response intercept(Chain chain) throws IOException {
         Request original = chain.request();
         if (original.url().toString().contains("book/") ||
                 original.url().toString().contains("book-list/") ||
                 original.url().toString().contains("toc/") ||
                 original.url().toString().contains("post/") ||
-                original.url().toString().contains("user/"))
-        {
+                original.url().toString().contains("user/")) {
             Request request = original.newBuilder()
                     // 不能转UTF-8
                     .addHeader("User-Agent", "ZhuiShuShenQi/3.40[preload=false;locale=zh_CN;clientidbase=android-nvidia]")

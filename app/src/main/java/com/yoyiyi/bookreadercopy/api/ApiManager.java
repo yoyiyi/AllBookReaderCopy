@@ -1,7 +1,8 @@
 package com.yoyiyi.bookreadercopy.api;
 
-import com.yoyiyi.zzq.bookreader.base.Constant;
-import com.yoyiyi.zzq.bookreader.entities.RankingList;
+
+import com.yoyiyi.bookreadercopy.base.Constant;
+import com.yoyiyi.bookreadercopy.entities.RankingList;
 
 import okhttp3.OkHttpClient;
 import retrofit2.Retrofit;
@@ -14,13 +15,11 @@ import rx.Observable;
  * Created by zzq on 2016/12/5.
  */
 
-public class ApiManager
-{
+public class ApiManager {
     private ApiService service;
     private static ApiManager instance;
 
-    public ApiManager(OkHttpClient okHttpClient)
-    {
+    public ApiManager(OkHttpClient okHttpClient) {
         Retrofit retrofit = new Retrofit.Builder()
                 .baseUrl(Constant.API_BASE_URL)
                 //RxJava适配器
@@ -32,13 +31,10 @@ public class ApiManager
         service = retrofit.create(ApiService.class);
     }
 
-    public static ApiManager getInstance(OkHttpClient okHttpClient)
-    {
+    public static ApiManager getInstance(OkHttpClient okHttpClient) {
         if (instance == null)
-            synchronized (ApiManager.class)
-            {
-                if (instance == null)
-                {
+            synchronized (ApiManager.class) {
+                if (instance == null) {
                     instance = new ApiManager(okHttpClient);
                 }
             }
@@ -50,8 +46,7 @@ public class ApiManager
      *
      * @return
      */
-    public Observable<RankingList> getRanking()
-    {
+    public Observable<RankingList> getRanking() {
         return service.getRanking();
     }
 }
