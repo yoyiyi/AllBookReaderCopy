@@ -24,7 +24,6 @@ public class TopRankActivity extends BaseActivity implements TopRankContract.Vie
     TopRankPresenter mPresenter;
 
     List<RankingList.MaleBean> mMaleBeanList = new ArrayList<>();
-    private StringBuffer mBuffer;
 
     @Override
     public int getLayoutId() {
@@ -61,11 +60,7 @@ public class TopRankActivity extends BaseActivity implements TopRankContract.Vie
     @Override
     public void showRankList(RankingList rankingList) {
         mMaleBeanList.addAll(rankingList.male);
-       /* mBuffer = new StringBuffer();
-        for (RankingList.MaleBean male : mMaleBeanList) {
-            mBuffer.append(male.title + "\n");
-            Logger.d(male.title);
-        }*/
+
     }
 
     @Override
