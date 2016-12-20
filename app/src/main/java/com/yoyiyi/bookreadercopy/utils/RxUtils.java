@@ -20,7 +20,7 @@ import rx.schedulers.Schedulers;
  * Created by zzq on 2016/12/19.
  */
 
-public class RxUtil {
+public class RxUtils {
 
     /**
      * 生命周期管理

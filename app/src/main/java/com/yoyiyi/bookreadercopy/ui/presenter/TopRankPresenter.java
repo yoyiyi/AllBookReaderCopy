@@ -5,7 +5,7 @@ import com.yoyiyi.bookreadercopy.api.ApiManager;
 import com.yoyiyi.bookreadercopy.base.RxPresenter;
 import com.yoyiyi.bookreadercopy.entities.RankingList;
 import com.yoyiyi.bookreadercopy.ui.contract.TopRankContract;
-import com.yoyiyi.bookreadercopy.utils.RxUtil;
+import com.yoyiyi.bookreadercopy.utils.RxUtils;
 import com.yoyiyi.bookreadercopy.utils.StringUtils;
 
 import javax.inject.Inject;
@@ -32,9 +32,9 @@ public class TopRankPresenter extends RxPresenter<TopRankContract.View> implemen
         String key = StringUtils.creatAcacheKey("book-ranking-list");
         Observable<RankingList> observable = mApiManager
                 .getRanking()
-                .compose(RxUtil.<RankingList>rxCacheBeanHelper(key));
+                .compose(RxUtils.<RankingList>rxCacheBeanHelper(key));
         Subscription subscription = Observable
-                .concat(RxUtil.rxCreateDiskObservable(key, RankingList.class), observable)
+                .concat(RxUtils.rxCreateDiskObservable(key, RankingList.class), observable)
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(new Observer<RankingList>() {
                     @Override

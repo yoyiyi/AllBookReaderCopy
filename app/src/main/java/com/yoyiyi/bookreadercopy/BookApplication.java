@@ -51,7 +51,7 @@ import com.yoyiyi.bookreadercopy.module.ApiModule;
 import com.yoyiyi.bookreadercopy.module.AppModule;
 import com.yoyiyi.bookreadercopy.utils.AppUtils;
 import com.yoyiyi.bookreadercopy.utils.LogUtils;
-import com.yoyiyi.bookreadercopy.utils.SharedPreferencesUtil;
+import com.yoyiyi.bookreadercopy.utils.SharedPreferencesUtils;
 
 /**
  * 全局Application
@@ -91,7 +91,7 @@ public class BookApplication extends Application {
      * 初始化SharedPreferences
      */
     private void initPrefs() {
-        SharedPreferencesUtil.init(getApplicationContext(), getPackageName() + "_preference", Context.MODE_MULTI_PROCESS);
+        SharedPreferencesUtils.init(getApplicationContext(), getPackageName() + "_preference", Context.MODE_MULTI_PROCESS);
 
     }
 
