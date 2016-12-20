@@ -5,11 +5,10 @@
                 android:orientation="vertical">
 
     <include
-        layout="@layout/custom_toolbar"
-        />
+        layout="@layout/common_toolbar"/>
 
     <include
-        layout="@layout/custom_progress"/>
+        layout="@layout/common_progress"/>
 
 
 </RelativeLayout>

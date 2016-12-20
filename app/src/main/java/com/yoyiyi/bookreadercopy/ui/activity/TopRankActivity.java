@@ -71,7 +71,6 @@ public class TopRankActivity extends BaseActivity implements TopRankContract.Vie
     @Override
     public void complete() {
         hideProgress();
-
     }
 
 }
