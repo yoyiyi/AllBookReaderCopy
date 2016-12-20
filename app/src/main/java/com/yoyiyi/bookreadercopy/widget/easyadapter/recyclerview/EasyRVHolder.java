@@ -16,9 +16,10 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
-import com.yuyh.easyadapter.glide.GlideCircleTransform;
-import com.yuyh.easyadapter.glide.GlideRoundTransform;
-import com.yuyh.easyadapter.helper.ViewHelper;
+import com.yoyiyi.bookreadercopy.widget.easyadapter.glide.GlideCircleTransform;
+import com.yoyiyi.bookreadercopy.widget.easyadapter.glide.GlideRoundTransform;
+import com.yoyiyi.bookreadercopy.widget.easyadapter.helper.ViewHelper;
+
 
 public class EasyRVHolder extends RecyclerView.ViewHolder implements ViewHelper.RecyclerView<EasyRVHolder> {
 
