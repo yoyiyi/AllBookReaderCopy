@@ -52,7 +52,7 @@ public class MainActivity extends AppCompatActivity
         ButterKnife.bind(this);
         initTabLayout();
         initToolbar();
-        mFab.setOnClickListener(v->
+       mFab.setOnClickListener(v->
                 Snackbar.make(v, "Replace with your own action", Snackbar.LENGTH_LONG)
                         .setAction("Action", null).show());
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
@@ -71,10 +71,10 @@ public class MainActivity extends AppCompatActivity
         mTabTitleList.add("书架");
         mTabTitleList.add("社区");
         mTabTitleList.add("发现");
-//        mTabMainTitle.setTabMode(TabLayout.MODE_FIXED);
-//        mTabMainTitle.addTab(mTabMainTitle.newTab().setText(mTabTitleList.get(0)));
-//        mTabMainTitle.addTab(mTabMainTitle.newTab().setText(mTabTitleList.get(1)));
- //       mTabMainTitle.addTab(mTabMainTitle.newTab().setText(mTabTitleList.get(2)));
+        mTabMainTitle.setTabMode(TabLayout.MODE_FIXED);
+        mTabMainTitle.addTab(mTabMainTitle.newTab().setText(mTabTitleList.get(0)));
+        mTabMainTitle.addTab(mTabMainTitle.newTab().setText(mTabTitleList.get(1)));
+        mTabMainTitle.addTab(mTabMainTitle.newTab().setText(mTabTitleList.get(2)));
     }
 
     @Override
