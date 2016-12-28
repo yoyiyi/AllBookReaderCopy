@@ -4,7 +4,7 @@ package com.yoyiyi.bookreadercopy.utils;
 import android.text.TextUtils;
 
 import com.google.gson.Gson;
-import com.orhanobut.logger.Logger;
+
 import com.yoyiyi.bookreadercopy.BookApplication;
 
 import java.lang.reflect.Field;
@@ -44,9 +44,9 @@ public class RxUtils {
      */
     public static <T> Observable rxCreateDiskObservable(final String key, final Class<T> clazz) {
         return Observable.create(subscriber -> {
-            Logger.d("Get data from Disk:");
+            LogUtils.d("Get data from Disk:");
             String json = ACache.get(BookApplication.getInstance()).getAsString(key);
-            Logger.json(json);
+            LogUtils.i(json);
             if (!TextUtils.isEmpty(json)) {
                 subscriber.onNext(json);
             }
@@ -58,7 +58,7 @@ public class RxUtils {
     }
 
     /**
-     * 获取数据帮助
+     * 缓存List数据
      *
      * @param key
      * @param <T>
@@ -71,7 +71,7 @@ public class RxUtils {
                 .doOnNext(data ->
                         //创建新线程 类似于传统 new Thread()
                         Schedulers.io().createWorker().schedule(() -> {
-                            Logger.d("get data from network finish ,start cache...");
+                            LogUtils.d("get data from network finish ,start cache...");
                             //通过反射获取List,再判空决定是否缓存
                             Class clazz = data.getClass();
                             Field[] fields = clazz.getFields();
@@ -81,11 +81,11 @@ public class RxUtils {
                                 if (className.equalsIgnoreCase("List")) {
                                     try {
                                         List list = (List) field.get(data);
-                                        Logger.d("list==" + list);
+                                        LogUtils.d("list==" + list);
                                         if (!list.isEmpty()) {
                                             ACache.get(BookApplication.getInstance())
                                                     .put(key, new Gson().toJson(data, clazz));
-                                            Logger.d("cache finish");
+                                            LogUtils.d("cache finish");
                                         }
                                     } catch (IllegalAccessException e) {
                                         e.printStackTrace();
@@ -97,14 +97,21 @@ public class RxUtils {
 
     }
 
+    /**
+     * 缓存Bean数据
+     *
+     * @param key
+     * @param <T>
+     * @return
+     */
     public static <T> Observable.Transformer<T, T> rxCacheBeanHelper(final String key) {
         return observable -> observable.subscribeOn(Schedulers.io())
                 .doOnNext(data ->
                         Schedulers.io().createWorker().schedule(() -> {
-                            Logger.d("get data from network finish ,start cache...");
+                            LogUtils.d("get data from network finish ,start cache...");
                             ACache.get(BookApplication.getInstance())
                                     .put(key, new Gson().toJson(data, data.getClass()));
-                            Logger.d("cache finish");
+                            LogUtils.d("cache finish");
                         }))
                 .observeOn(AndroidSchedulers.mainThread());
     }

@@ -25,7 +25,7 @@ import butterknife.ButterKnife;
  */
 
 public abstract class BaseActivity extends AppCompatActivity {
-    protected ProgressWheel mProgress;
+    protected ProgressWheel mLoading;
     protected int statusBarColor = 0;//状态栏颜色
     protected View statusBarView = null;//状态栏View
     protected Context mContext;//上下文环境
@@ -47,17 +47,19 @@ public abstract class BaseActivity extends AppCompatActivity {
         ButterKnife.bind(this);
 
         mToolbar = ButterKnife.findById(this, R.id.common_toolbar);
-        mProgress = ButterKnife.findById(this, R.id.common_progress);
+        mLoading = ButterKnife.findById(this, R.id.common_progress);
+
         setupActivityComponent(BookApplication.getInstance().getAppComponent());
+
         if (mToolbar != null) {
             //初始化Toolbar
             initToolbar();
             //让组件支持Toolbar
             setSupportActionBar(mToolbar);
         }
-        if (mProgress != null) {
+        if (mLoading != null) {
             //显示加载框
-            showProgress();
+            showLoading();
         }
         initWidget();
         initDatas();
@@ -108,16 +110,16 @@ public abstract class BaseActivity extends AppCompatActivity {
     /**
      * 显示加载框
      */
-    public void showProgress() {
-        mProgress.setVisibility(View.VISIBLE);
+    public void showLoading() {
+        mLoading.setVisibility(View.VISIBLE);
     }
 
     /**
      * 隐藏加载框
      */
-    public void hideProgress() {
-        if (mProgress != null) {
-            mProgress.setVisibility(View.GONE);
+    public void hideLoading() {
+        if (mLoading != null) {
+            mLoading.setVisibility(View.GONE);
         }
     }
 
@@ -145,4 +147,45 @@ public abstract class BaseActivity extends AppCompatActivity {
             statusBarView.setBackgroundColor(statusBarColor);
         }
     }
+
+
+    /**
+     * 隐藏View
+     * @param views
+     */
+    protected void gone(final View... views) {
+        if (views != null && views.length > 0) {
+            for (View view : views) {
+                if (view != null) {
+                    view.setVisibility(View.GONE);
+                }
+            }
+        }
+    }
+
+    /**
+     * 显示View
+     * @param views
+     */
+    protected void visible(final View... views) {
+        if (views != null && views.length > 0) {
+            for (View view : views) {
+                if (view != null) {
+                    view.setVisibility(View.VISIBLE);
+                }
+            }
+        }
+
+    }
+
+    /**
+     * 判断View是否Visible
+     * @param view
+     * @return
+     */
+    protected boolean isVisible(View view) {
+        return view.getVisibility() == View.VISIBLE;
+    }
+
+
 }

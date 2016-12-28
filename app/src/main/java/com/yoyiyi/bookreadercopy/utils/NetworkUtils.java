@@ -330,7 +330,7 @@ public class NetworkUtils {
      * @return true 表示开启
      */
     public static final boolean isGpsEnabled() {
-        LocationManager locationManager = (LocationManager) AppUtils.getContext().getSystemService(Context.LOCATION_SERVICE);
+        LocationManager locationManager = (LocationManager) AppUtils.getAppContext().getSystemService(Context.LOCATION_SERVICE);
         boolean gps = locationManager.isProviderEnabled(LocationManager.GPS_PROVIDER); // GPS
         boolean network = locationManager.isProviderEnabled(LocationManager.NETWORK_PROVIDER); // WLAN或移动网络(3G/2G)
         if (gps || network) {
@@ -349,7 +349,7 @@ public class NetworkUtils {
         GPSIntent.addCategory("android.intent.category.ALTERNATIVE");
         GPSIntent.setData(Uri.parse("custom:3"));
         try {
-            PendingIntent.getBroadcast(AppUtils.getContext(), 0, GPSIntent, 0).send();
+            PendingIntent.getBroadcast(AppUtils.getAppContext(), 0, GPSIntent, 0).send();
         } catch (PendingIntent.CanceledException e) {
             e.printStackTrace();
         }

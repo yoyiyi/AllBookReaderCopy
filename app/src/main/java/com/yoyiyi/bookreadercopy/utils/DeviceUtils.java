@@ -11,7 +11,6 @@ import android.telephony.TelephonyManager;
 import android.text.format.Formatter;
 import android.util.DisplayMetrics;
 
-import com.orhanobut.logger.Logger;
 
 /**
  * 设备工具类
@@ -119,7 +118,7 @@ public class DeviceUtils {
         sb.append("\nscaledDensity   :").append(dm.scaledDensity);
         sb.append("\nxdpi            :").append(dm.xdpi);
         sb.append("\nydpi            :").append(dm.ydpi);
-        Logger.i(TAG, sb.toString());
+        LogUtils.i(TAG, sb.toString());
         return dm;
     }
 
@@ -148,7 +147,7 @@ public class DeviceUtils {
         WifiManager wifi = (WifiManager) context.getSystemService(Context.WIFI_SERVICE);
         WifiInfo info = wifi.getConnectionInfo();
         String mac = info.getMacAddress();
-        Logger.i(TAG, " MAC：" + mac);
+        LogUtils.i(TAG, " MAC：" + mac);
         return mac;
     }
 
@@ -159,7 +158,7 @@ public class DeviceUtils {
         long time = SystemClock.elapsedRealtime() / 1000;
         int h = (int) ((time / 3600));
         int m = (int) ((time / 60) % 60);
-        Logger.i(TAG, h + ":" + m);
+        LogUtils.i(TAG, h + ":" + m);
         return h + ":" + m;
     }
 }

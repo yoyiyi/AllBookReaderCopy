@@ -65,9 +65,11 @@ public class BookApplication extends Application {
     @Override
     public void onCreate() {
         super.onCreate();
+
         mContext = this;
         //App帮助类
         AppUtils.init(this);
+        //Component
         initComponent();
         //Log
         initLog();

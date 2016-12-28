@@ -79,7 +79,7 @@ public class FileUtils {
         }
         byte[] buffer = null;
         try {
-            InputStream fin = AppUtils.getContext().getAssets().open("uploader" + fileName);
+            InputStream fin = AppUtils.getAppContext().getAssets().open("uploader" + fileName);
             int length = fin.available();
             buffer = new byte[length];
             fin.read(buffer);

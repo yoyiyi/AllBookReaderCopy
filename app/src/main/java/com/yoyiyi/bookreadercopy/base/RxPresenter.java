@@ -22,7 +22,7 @@ public class RxPresenter<T extends BaseContract.BaseView> implements BaseContrac
 
     /**
      * 绑定
-     * @param subscription
+     * @param subscription 订阅
      */
     protected void addSubscribe(Subscription subscription) {
         if (mCompositeSubscription == null) {

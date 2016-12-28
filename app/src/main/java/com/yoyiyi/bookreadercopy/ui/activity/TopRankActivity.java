@@ -65,12 +65,12 @@ public class TopRankActivity extends BaseActivity implements TopRankContract.Vie
 
     @Override
     public void showError() {
-        hideProgress();
+        hideLoading();
     }
 
     @Override
     public void complete() {
-        hideProgress();
+        hideLoading();
     }
 
 }
