@@ -1,5 +1,8 @@
 package com.yoyiyi.bookreadercopy.ui.activity;
 
+import android.content.Context;
+import android.content.Intent;
+
 import com.yoyiyi.bookreadercopy.R;
 import com.yoyiyi.bookreadercopy.base.BaseActivity;
 import com.yoyiyi.bookreadercopy.component.AppComponent;
@@ -25,6 +28,11 @@ public class TopRankActivity extends BaseActivity implements TopRankContract.Vie
 
     List<RankingList.MaleBean> mMaleBeanList = new ArrayList<>();
 
+    public static void startActivity(Context context) {
+        Intent intent = new Intent(context, TopRankActivity.class);
+        context.startActivity(intent);
+    }
+
     @Override
     public int getLayoutId() {
         return R.layout.activity_top_rank;
@@ -36,10 +44,6 @@ public class TopRankActivity extends BaseActivity implements TopRankContract.Vie
         mPresenter.getRankList();
     }
 
-    @Override
-    public void initDatas() {
-
-    }
 
     @Override
     public void initToolbar() {

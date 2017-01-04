@@ -28,6 +28,7 @@ import okhttp3.Request;
 import okhttp3.RequestBody;
 import okhttp3.Response;
 import okhttp3.ResponseBody;
+import okhttp3.internal.Platform;
 import okhttp3.internal.http.HttpEngine;
 import okio.Buffer;
 import okio.BufferedSource;
@@ -40,6 +41,8 @@ import okio.BufferedSource;
  */
 public final class LoggingInterceptor implements Interceptor {
     private static final Charset UTF8 = Charset.forName("UTF-8");
+    private final Logger logger;
+    private volatile Level level = Level.NONE;
 
     public enum Level {
         /**
@@ -98,6 +101,9 @@ public final class LoggingInterceptor implements Interceptor {
          */
         BODY
     }
+    public Level getLevel() {
+        return level;
+    }
 
     public interface Logger {
         void log(String message);
@@ -105,9 +111,9 @@ public final class LoggingInterceptor implements Interceptor {
         /**
          * A {@link Logger} defaults output appropriate for the current platform.
          */
-        Logger DEFAULT = message -> {
-            //Platform.get().log(4, message, null);
-        };
+        Logger DEFAULT = message ->
+                Platform.get().log(4, message, null);
+
     }
 
     public LoggingInterceptor() {
@@ -117,11 +123,6 @@ public final class LoggingInterceptor implements Interceptor {
     public LoggingInterceptor(Logger logger) {
         this.logger = logger;
     }
-
-    private final Logger logger;
-
-    private volatile Level level = Level.NONE;
-
     /**
      * Change the level at which this interceptor logs.
      */
@@ -131,15 +132,12 @@ public final class LoggingInterceptor implements Interceptor {
         return this;
     }
 
-    public Level getLevel() {
-        return level;
-    }
 
     @Override
     public Response intercept(Chain chain) throws IOException {
         Level level = this.level;
-
         Request request = chain.request();
+
         if (level == Level.NONE) {
             return chain.proceed(request);
         }

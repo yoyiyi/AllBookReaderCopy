@@ -62,6 +62,7 @@ public abstract class BaseActivity extends AppCompatActivity {
             showLoading();
         }
         initWidget();
+        initVariables();
         initDatas();
     }
 
@@ -91,7 +92,9 @@ public abstract class BaseActivity extends AppCompatActivity {
     /**
      * 初始化数据
      */
-    public abstract void initDatas();
+    public void initDatas() {
+    }
+
 
     /**
      * 初始化Toolbar
@@ -101,11 +104,18 @@ public abstract class BaseActivity extends AppCompatActivity {
     }
 
     /**
+     * 初始化变量
+     */
+    public void initVariables() {
+    }
+
+    /**
      * 初始化Component
      *
      * @param appComponent
      */
-    protected abstract void setupActivityComponent(AppComponent appComponent);
+    protected void setupActivityComponent(AppComponent appComponent) {
+    }
 
     /**
      * 显示加载框
@@ -151,6 +161,7 @@ public abstract class BaseActivity extends AppCompatActivity {
 
     /**
      * 隐藏View
+     *
      * @param views
      */
     protected void gone(final View... views) {
@@ -165,6 +176,7 @@ public abstract class BaseActivity extends AppCompatActivity {
 
     /**
      * 显示View
+     *
      * @param views
      */
     protected void visible(final View... views) {
@@ -180,6 +192,7 @@ public abstract class BaseActivity extends AppCompatActivity {
 
     /**
      * 判断View是否Visible
+     *
      * @param view
      * @return
      */

@@ -54,6 +54,7 @@ public abstract class BaseFragment extends Fragment {
         }
         setupActivityComponent(BookApplication.getInstance().getAppComponent());
         attachView();
+        initVariables();
         initDatas();
         initWidget();
     }
@@ -61,24 +62,35 @@ public abstract class BaseFragment extends Fragment {
     /**
      * 粘贴View
      */
-    public abstract void attachView();
+    public void attachView() {
+    }
+
+    /**
+     * 初始化变量
+     */
+    public void initVariables() {
+    }
 
     /**
      * 初始化数据
      */
-    public abstract void initDatas();
-
-    /**
-     * 对各种控件进行设置、适配、填充数据
-     */
-    public abstract void initWidget();
+    public void initDatas() {
+    }
 
     /**
      * 初始化AppComponent组件
      *
      * @param appComponent component
      */
-    protected abstract void setupActivityComponent(AppComponent appComponent);
+    protected void setupActivityComponent(AppComponent appComponent) {
+    }
+
+
+    /**
+     * 对各种控件进行设置、适配、填充数据
+     */
+    public abstract void initWidget();
+
 
     /**
      * 粘贴

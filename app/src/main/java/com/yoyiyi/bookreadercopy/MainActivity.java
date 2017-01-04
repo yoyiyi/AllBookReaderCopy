@@ -20,18 +20,17 @@ import java.util.List;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
-import static com.yoyiyi.bookreadercopy.R.id.fab;
-
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
+
     @BindView(R.id.toolbar)
     Toolbar mToolbar;
-    @BindView(R.id.tab_main_title)
-    TabLayout mTabMainTitle;
-    @BindView(R.id.vp_main_content)
-    ViewPager mVpMainContent;
-    @BindView(fab)
+    @BindView(R.id.tab_layout)
+    TabLayout mTabLayout;
+    @BindView(R.id.view_pager)
+    ViewPager mViewPager;
+    @BindView(R.id.fab)
     FloatingActionButton mFab;
     @BindView(R.id.nav_view)
     NavigationView mNavView;
@@ -52,7 +51,7 @@ public class MainActivity extends AppCompatActivity
         ButterKnife.bind(this);
         initTabLayout();
         initToolbar();
-       mFab.setOnClickListener(v->
+        mFab.setOnClickListener(v ->
                 Snackbar.make(v, "Replace with your own action", Snackbar.LENGTH_LONG)
                         .setAction("Action", null).show());
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
@@ -71,10 +70,10 @@ public class MainActivity extends AppCompatActivity
         mTabTitleList.add("书架");
         mTabTitleList.add("社区");
         mTabTitleList.add("发现");
-        mTabMainTitle.setTabMode(TabLayout.MODE_FIXED);
-        mTabMainTitle.addTab(mTabMainTitle.newTab().setText(mTabTitleList.get(0)));
-        mTabMainTitle.addTab(mTabMainTitle.newTab().setText(mTabTitleList.get(1)));
-        mTabMainTitle.addTab(mTabMainTitle.newTab().setText(mTabTitleList.get(2)));
+        mTabLayout.setTabMode(TabLayout.MODE_FIXED);
+        mTabLayout.addTab(mTabLayout.newTab().setText(mTabTitleList.get(0)));
+        mTabLayout.addTab(mTabLayout.newTab().setText(mTabTitleList.get(1)));
+        mTabLayout.addTab(mTabLayout.newTab().setText(mTabTitleList.get(2)));
     }
 
     @Override

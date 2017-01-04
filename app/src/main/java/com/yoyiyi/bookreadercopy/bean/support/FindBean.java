@@ -5,4 +5,11 @@ package com.yoyiyi.bookreadercopy.bean.support;
  */
 
 public class FindBean {
+    public String title;
+    public int iconResId;
+
+    public FindBean(String title, int iconResId) {
+        this.title = title;
+        this.iconResId = iconResId;
+    }
 }

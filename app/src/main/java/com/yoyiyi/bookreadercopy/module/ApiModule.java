@@ -21,10 +21,8 @@ public class ApiModule {
 
     @Provides
     public OkHttpClient provideOkHttpClient() {
-
         LoggingInterceptor logging = new LoggingInterceptor(new MyLog());
         logging.setLevel(LoggingInterceptor.Level.BODY);
-
         OkHttpClient.Builder builder = new OkHttpClient.Builder()
                 .connectTimeout(20, TimeUnit.SECONDS)
                 .readTimeout(20, TimeUnit.SECONDS)
@@ -32,7 +30,6 @@ public class ApiModule {
                 .addInterceptor(new HeaderInterceptor()) //设置请求头
                 .addNetworkInterceptor(new StethoInterceptor())//设置Stetho 调试工具
                 .addInterceptor(logging);//设置logging过滤器
-
         //.addNetworkInterceptor(new CacheInterceptor())
         //.addInterceptor(new CacheInterceptor())
         // .addInterceptor(new LoggerInterceptor());
