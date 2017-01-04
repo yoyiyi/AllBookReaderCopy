@@ -1,7 +1,7 @@
-package com.yoyiyi.bookreadercopy.entities;
+package com.yoyiyi.bookreadercopy.bean;
 
 
-import com.yoyiyi.bookreadercopy.entities.base.BaseEntity;
+import com.yoyiyi.bookreadercopy.bean.base.BaseEntity;
 
 import java.util.List;
 

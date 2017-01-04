@@ -1,6 +1,6 @@
 package com.yoyiyi.bookreadercopy.api;
 
-import com.yoyiyi.bookreadercopy.entities.RankingList;
+import com.yoyiyi.bookreadercopy.bean.RankingList;
 
 import retrofit2.http.GET;
 import rx.Observable;

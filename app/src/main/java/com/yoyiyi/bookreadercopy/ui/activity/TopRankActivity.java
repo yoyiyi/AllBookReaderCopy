@@ -4,7 +4,7 @@ import com.yoyiyi.bookreadercopy.R;
 import com.yoyiyi.bookreadercopy.base.BaseActivity;
 import com.yoyiyi.bookreadercopy.component.AppComponent;
 import com.yoyiyi.bookreadercopy.component.DaggerFindComponent;
-import com.yoyiyi.bookreadercopy.entities.RankingList;
+import com.yoyiyi.bookreadercopy.bean.RankingList;
 import com.yoyiyi.bookreadercopy.ui.contract.TopRankContract;
 import com.yoyiyi.bookreadercopy.ui.presenter.TopRankPresenter;
 

@@ -2,7 +2,7 @@ package com.yoyiyi.bookreadercopy.api;
 
 
 import com.yoyiyi.bookreadercopy.base.Constant;
-import com.yoyiyi.bookreadercopy.entities.RankingList;
+import com.yoyiyi.bookreadercopy.bean.RankingList;
 
 import okhttp3.OkHttpClient;
 import retrofit2.Retrofit;

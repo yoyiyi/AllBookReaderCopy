@@ -1,4 +1,4 @@
-package com.yoyiyi.bookreadercopy.entities.base;
+package com.yoyiyi.bookreadercopy.bean.base;
 
 import java.io.Serializable;
 

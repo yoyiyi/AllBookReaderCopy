@@ -1,7 +1,7 @@
 package com.yoyiyi.bookreadercopy.ui.contract;
 
 import com.yoyiyi.bookreadercopy.base.BaseContract;
-import com.yoyiyi.bookreadercopy.entities.RankingList;
+import com.yoyiyi.bookreadercopy.bean.RankingList;
 
 /**
  * Created by zzq on 2016/12/19.

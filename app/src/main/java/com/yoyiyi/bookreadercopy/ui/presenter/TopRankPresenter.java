@@ -3,7 +3,7 @@ package com.yoyiyi.bookreadercopy.ui.presenter;
 import com.orhanobut.logger.Logger;
 import com.yoyiyi.bookreadercopy.api.ApiManager;
 import com.yoyiyi.bookreadercopy.base.RxPresenter;
-import com.yoyiyi.bookreadercopy.entities.RankingList;
+import com.yoyiyi.bookreadercopy.bean.RankingList;
 import com.yoyiyi.bookreadercopy.ui.contract.TopRankContract;
 import com.yoyiyi.bookreadercopy.utils.RxUtils;
 import com.yoyiyi.bookreadercopy.utils.StringUtils;

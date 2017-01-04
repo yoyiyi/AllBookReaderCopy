@@ -47,8 +47,7 @@ public abstract class BaseFragment extends Fragment {
     public void onViewCreated(View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         ButterKnife.bind(this, view);
-
-        mLoading = ButterKnife.findById(getParentView(), R.id.common_progress);
+        mLoading = ButterKnife.findById(view, R.id.common_progress);
         if (mLoading != null) {
             //显示加载框
             showLoading();
