@@ -4,11 +4,61 @@
                 android:layout_height="match_parent"
                 android:orientation="vertical">
 
-    <include
-        layout="@layout/common_toolbar"/>
+    <LinearLayout
+        android:id="@+id/ll_include"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <include
+            layout="@layout/common_toolbar"
+            />
+    </LinearLayout>
 
     <include
         layout="@layout/common_progress"/>
 
+    <com.yoyiyi.bookreadercopy.widget.ReboundScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/ll_include"
+        android:layerType="software">
 
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="10dp"
+                android:text="男生"
+                android:textColor="@color/common_h1"
+                android:textSize="18dp"/>
+
+            <com.yoyiyi.bookreadercopy.widget.CustomExpandableListView
+                android:id="@+id/elv_male"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:childDivider="@drawable/shape_common_dash_divide"
+                android:groupIndicator="@null"
+                android:listSelector="@drawable/shape_common_selector"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="10dp"
+                android:text="女生"
+                android:textColor="@color/common_h1"
+                android:textSize="18dp"/>
+
+            <com.yoyiyi.bookreadercopy.widget.CustomExpandableListView
+                android:id="@+id/elv_female"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:childDivider="@drawable/shape_common_dash_divide"
+                android:groupIndicator="@null"
+                android:listSelector="@drawable/shape_common_selector"/>
+
+        </LinearLayout>
+    </com.yoyiyi.bookreadercopy.widget.ReboundScrollView>
 </RelativeLayout>

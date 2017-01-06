@@ -23,7 +23,7 @@ public class FindAdapter extends BaseQuickAdapter<FindBean, BaseViewHolder> {
     @Override
     protected void convert(BaseViewHolder helper, FindBean item) {
         helper.setText(R.id.tv_title, item.title)
-                .setText(R.id.iv_icon, item.iconResId);
+                .setImageResource(R.id.iv_icon, item.iconResId);
         helper.convertView.setOnClickListener(
                 v -> mListener.onItemClick(helper.convertView, helper.getAdapterPosition(), item));
     }

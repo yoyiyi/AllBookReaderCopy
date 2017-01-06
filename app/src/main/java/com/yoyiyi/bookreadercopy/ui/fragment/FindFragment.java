@@ -11,7 +11,6 @@ import com.yoyiyi.bookreadercopy.common.OnRvItemClickListener;
 import com.yoyiyi.bookreadercopy.ui.activity.TopRankActivity;
 import com.yoyiyi.bookreadercopy.ui.adapter.FindAdapter;
 import com.yoyiyi.bookreadercopy.widget.DividerItemDecoration;
-
 import java.util.ArrayList;
 import java.util.List;
 

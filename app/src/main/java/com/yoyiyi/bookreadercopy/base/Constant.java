@@ -10,10 +10,11 @@ import com.yoyiyi.bookreadercopy.utils.FileUtils;
 public class Constant {
     //base_url
     public static final String API_BASE_URL = "http://api.zhuishushenqi.com";
+    public static final String IMG_BASE_URL = "http://statics.zhuishushenqi.com";
     //缓存数据目录
-    public static String PATH_DATA = FileUtils.createRootPath(AppUtils.getContext()) + "/cache";
+    public static String PATH_DATA = FileUtils.createRootPath(AppUtils.getAppContext()) + "/cache";
     //缓存数据目录
-    public static String PATH_COLLECT = FileUtils.createRootPath(AppUtils.getContext()) + "/collect";
+    public static String PATH_COLLECT = FileUtils.createRootPath(AppUtils.getAppContext()) + "/collect";
     //根目录
-    public static String BASE_PATH = FileUtils.createRootPath(AppUtils.getContext()) + "/book/";
+    public static String BASE_PATH = FileUtils.createRootPath(AppUtils.getAppContext()) + "/book/";
 }
