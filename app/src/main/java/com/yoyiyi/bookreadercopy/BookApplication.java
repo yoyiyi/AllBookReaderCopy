@@ -137,8 +137,7 @@ public class BookApplication extends Application {
      */
 
     private void initComponent() {
-        mAppComponent = DaggerAppComponent
-                .builder()
+        mAppComponent = DaggerAppComponent.builder()
                 .apiModule(new ApiModule())
                 .appModule(new AppModule(this))
                 .build();

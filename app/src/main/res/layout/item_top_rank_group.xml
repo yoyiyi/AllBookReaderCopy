@@ -18,6 +18,7 @@
         android:layout_height="wrap_content"
         android:layout_centerVertical="true"
         android:layout_marginLeft="15dp"
+        android:textSize="@dimen/common_h2"
         android:layout_toRightOf="@+id/iv_rank_cover"
         android:text="xxxx" />
 

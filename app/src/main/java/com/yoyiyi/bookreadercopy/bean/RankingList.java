@@ -10,26 +10,8 @@ import java.util.List;
  */
 
 public class RankingList extends BaseEntity {
-    public List<FemaleBean> female;
+    public List<MaleBean> female;
     public List<MaleBean> male;
-
-    public static class FemaleBean {
-        /**
-         * _id : 54d43437d47d13ff21cad58b
-         * title : 追书最热榜 Top100
-         * cover : /ranking-cover/142319314350435
-         * collapse : false
-         * monthRank : 564d853484665f97662d0810
-         * totalRank : 564d85b6dd2bd1ec660ea8e2
-         */
-
-        public String _id;
-        public String title;
-        public String cover;
-        public boolean collapse;
-        public String monthRank;
-        public String totalRank;
-    }
 
     public static class MaleBean {
         /**
@@ -47,6 +29,13 @@ public class RankingList extends BaseEntity {
         public boolean collapse;
         public String monthRank;
         public String totalRank;
+
+        public MaleBean() {
+        }
+
+        public MaleBean(String title) {
+            this.title = title;
+        }
     }
 
 

@@ -20,6 +20,7 @@ import rx.android.schedulers.AndroidSchedulers;
  */
 
 public class TopRankPresenter extends RxPresenter<TopRankContract.View> implements TopRankContract.Presenter<TopRankContract.View> {
+
     private ApiManager mApiManager;
 
     @Inject

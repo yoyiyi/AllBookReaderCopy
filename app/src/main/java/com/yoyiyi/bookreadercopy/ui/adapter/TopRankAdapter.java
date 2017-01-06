@@ -113,20 +113,8 @@ public class TopRankAdapter extends BaseExpandableListAdapter {
     public View getChildView(int i, int i1, boolean b, View view, ViewGroup viewGroup) {
         final View child = mInflater.inflate(R.layout.item_top_rank_child, null);
         TextView tvName = (TextView) child.findViewById(R.id.tv_rank_child_name);
-        ImageView ivCover = (ImageView) child.findViewById(R.id.iv_rank_child_cover);
         tvName.setText(mChildArray.get(i).get(i1).title);
-        if (!TextUtils.isEmpty(mChildArray.get(i).get(i1).cover)) {
-            //Glide 下载图片
-            Glide.with(mContext)
-                    .load(Constant.IMG_BASE_URL + (mChildArray.get(i).get(i1).cover))
-                    .placeholder(R.drawable.avatar_default)
-                    //设置圆形图片
-                    .transform(new GlideCircleTransform(mContext))
-                    .into(ivCover);
-            child.setOnClickListener(v -> listener.onItemClick(child, i1, mChildArray.get(i).get(i1)));
-        } else {
-            ivCover.setImageResource(R.drawable.avatar_default);
-        }
+        child.setOnClickListener(v -> listener.onItemClick(child, i1, mChildArray.get(i).get(i1)));
         return child;
     }
 

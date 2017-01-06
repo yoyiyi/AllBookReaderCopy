@@ -1,5 +1,7 @@
 package com.yoyiyi.bookreadercopy.component;
 
+import com.yoyiyi.bookreadercopy.ui.activity.SubOtherRankActivity;
+import com.yoyiyi.bookreadercopy.ui.activity.SubRankActivity;
 import com.yoyiyi.bookreadercopy.ui.activity.TopRankActivity;
 
 import dagger.Component;
@@ -11,4 +13,8 @@ import dagger.Component;
 public interface FindComponent {
 
     TopRankActivity inject(TopRankActivity activity);
+
+    SubRankActivity inject(SubRankActivity activity);
+
+    SubOtherRankActivity inject(SubOtherRankActivity activity);
 }
