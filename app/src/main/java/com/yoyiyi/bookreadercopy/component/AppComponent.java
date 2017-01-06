@@ -15,5 +15,5 @@ import dagger.Component;
 public interface AppComponent {
     ApiManager getApiManger();
 
-    Context getContext();
+    Context getContext() ;
 }

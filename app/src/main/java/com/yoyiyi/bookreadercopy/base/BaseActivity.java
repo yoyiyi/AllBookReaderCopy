@@ -52,10 +52,11 @@ public abstract class BaseActivity extends AppCompatActivity {
         setupActivityComponent(BookApplication.getInstance().getAppComponent());
 
         if (mToolbar != null) {
-            //初始化Toolbar
-            initToolbar();
             //让组件支持Toolbar
             setSupportActionBar(mToolbar);
+            //初始化Toolbar
+            initToolbar();
+
         }
         if (mLoading != null) {
             //显示加载框

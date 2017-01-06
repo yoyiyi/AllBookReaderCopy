@@ -68,6 +68,7 @@ public class TopRankActivity extends BaseActivity implements TopRankContract.Vie
     public void initToolbar() {
         mToolbar.setTitle("排行榜");
         mToolbar.setNavigationIcon(R.drawable.ic_action_back);
+        mToolbar.setNavigationOnClickListener(v -> finish());
     }
 
     @Override
